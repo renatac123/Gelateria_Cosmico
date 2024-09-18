@@ -40,8 +40,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="tipoCombo" min="-2" max="-2" attributes="0"/>
-                                  <Component id="precioText" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="tipoCombo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="precioText" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
                                   <Component id="descripcionText" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -69,13 +69,13 @@
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="precioText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="descripcionText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="descripcionText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="precioText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

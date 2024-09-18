@@ -129,18 +129,7 @@ public class Modificar_Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarButtonActionPerformed
-        producto producto = new producto();
 
-        producto.setTipo((String) tipoCombo.getSelectedItem());
-        System.out.println("tipo enla vista " + (String) tipoCombo.getSelectedItem());
-        producto.setDescripcion(descripcionText.getText());
-        producto.setPrecio(Integer.parseInt(precioText.getText()));
-
-        productoController.insertarProducto(producto.getTipo(), producto.getDescripcion(), producto.getPrecio());
-
-        tipoCombo.setSelectedIndex(0);
-        descripcionText.setText("");
-        precioText.setText("aaaaa");
     }//GEN-LAST:event_GuardarButtonActionPerformed
 
     private void tipoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboActionPerformed

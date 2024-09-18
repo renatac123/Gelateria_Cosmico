@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
-public class productoController {
+public class agregar_productoController {
 
     Connection conn = null;
     PreparedStatement ps = null;

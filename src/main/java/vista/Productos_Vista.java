@@ -4,18 +4,23 @@
  */
 package vista;
 
+import gestion_stock.controlador.productosController;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Caro
  */
 public class Productos_Vista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Productos_Vista
-     */
+    productosController productosControlles = new productosController();
+
     public Productos_Vista() {
         initComponents();
-        int a = 1;
+        
+        productosControlles.consultarLista(listaTable);
     }
 
     /**
@@ -28,10 +33,11 @@ public class Productos_Vista extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         CrearButton = new javax.swing.JButton();
         BorrarButton = new javax.swing.JButton();
         ModificarButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,44 +51,72 @@ public class Productos_Vista extends javax.swing.JFrame {
         });
 
         BorrarButton.setText("Borrar");
+        BorrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarButtonActionPerformed(evt);
+            }
+        });
 
         ModificarButton.setText("Modificar");
+        ModificarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarButtonActionPerformed(evt);
+            }
+        });
+
+        listaTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tipo", "Descripcion", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(listaTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CrearButton)
-                                .addGap(39, 39, 39)
-                                .addComponent(BorrarButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ModificarButton)
-                                .addGap(8, 8, 8)))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(CrearButton)
+                        .addGap(49, 49, 49)
+                        .addComponent(BorrarButton)
+                        .addGap(45, 45, 45)
+                        .addComponent(ModificarButton)
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(179, 179, 179))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CrearButton)
                     .addComponent(BorrarButton)
                     .addComponent(ModificarButton))
-                .addGap(54, 54, 54))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,6 +126,33 @@ public class Productos_Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
         // AAAAAAAAAAAAAAAAAAAA
     }//GEN-LAST:event_CrearButtonActionPerformed
+
+    private void ModificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarButtonActionPerformed
+
+    private void BorrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButtonActionPerformed
+        
+        int filaSeleccionada = listaTable.getSelectedRow();
+        
+        String id_producto = listaTable.getValueAt(filaSeleccionada, 0).toString();
+        
+        System.out.println("Fila "+ filaSeleccionada +" id "+ id_producto);
+        
+        productosControlles.borrarProducto(id_producto);
+        /*
+        try {
+            productosControlles.borrarProducto(id_producto);
+        } catch (ParseException ex) {
+            Logger.getLogger(Productos_Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        
+        //eliminar_vista eliminarVista = new eliminar_vista ();
+        
+        //eliminarVista.setVisible(true);
+        
+        //this.dispose();
+    }//GEN-LAST:event_BorrarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,6 +194,7 @@ public class Productos_Vista extends javax.swing.JFrame {
     private javax.swing.JButton CrearButton;
     private javax.swing.JButton ModificarButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable listaTable;
     // End of variables declaration//GEN-END:variables
 }
