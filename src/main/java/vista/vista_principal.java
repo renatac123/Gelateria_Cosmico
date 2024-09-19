@@ -33,8 +33,10 @@ public class vista_principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
         jLabel1.setText("Gelateria Cosmico");
 
+        nuevaventabutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         nuevaventabutton.setText("Nueva Venta");
         nuevaventabutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,6 +44,7 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
+        Productosbutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         Productosbutton.setText("Productos");
         Productosbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,47 +52,67 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
+        historialbutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         historialbutton.setText("Historial");
+        historialbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historialbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nuevaventabutton)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(historialbutton)
-                        .addComponent(Productosbutton)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(162, 162, 162)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nuevaventabutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Productosbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(historialbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(nuevaventabutton)
-                .addGap(31, 31, 31)
-                .addComponent(Productosbutton)
                 .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(30, 30, 30)
+                .addComponent(nuevaventabutton)
+                .addGap(47, 47, 47)
+                .addComponent(Productosbutton)
+                .addGap(49, 49, 49)
                 .addComponent(historialbutton)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nuevaventabuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaventabuttonActionPerformed
-        // TODO add your handling code here:
+       venta_vista ventaVista = new venta_vista();
+       
+       ventaVista.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_nuevaventabuttonActionPerformed
 
     private void ProductosbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosbuttonActionPerformed
-        // TODO add your handling code here:
-        //AAAAAAAAAAAAAAAAAAAA
+        Productos_Vista productosVista = new Productos_Vista();
+        
+        productosVista.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_ProductosbuttonActionPerformed
+
+    private void historialbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historialbuttonActionPerformed
+        historial_vista historialVista = new historial_vista();
+        historialVista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_historialbuttonActionPerformed
 
     /**
      * @param args the command line arguments

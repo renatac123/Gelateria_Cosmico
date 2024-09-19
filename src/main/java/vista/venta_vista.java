@@ -179,8 +179,10 @@ public class venta_vista extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarButtonActionPerformed
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        // TODO add your handling code here:
-        //AAAAAAAAAAAAAAAAAAAAAA
+        vista_principal vistaVolver = new vista_principal();
+        
+        vistaVolver.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_volverButtonActionPerformed
 
     /**

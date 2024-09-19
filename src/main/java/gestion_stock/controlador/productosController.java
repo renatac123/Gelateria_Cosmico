@@ -24,13 +24,14 @@ public class productosController {
     Connection conn = null;
     PreparedStatement ps = null;
     PreparedStatement ps1 = null;
+    PreparedStatement ps2 = null;
     ResultSet rs = null;
     ResultSet rs1 = null;
     DefaultTableModel modelo;
     
     public void consultarLista(JTable tabla){
         conn = conexion.ConnectDB();
-        String sql="SELECT id, tipo, descripcion, precio FROM Productos;";
+        String sql="SELECT id, tipo, descripcion, precio FROM Productos where hora_borrado IS NULL;";
         
         try{
             ps = conn.prepareStatement(sql);
@@ -144,6 +145,37 @@ public class productosController {
 
     
     
+    public void modificarProducto(String id) {
+        Connection conn = null;
+        PreparedStatement ps2 = null;
+        
+        /*
+        try {
+            conn = conexion.ConnectDB();
+            String sqlBorrado = "UPDATE Productos SET hora_borrado=? WHERE id=?";
+            ps1 = conn.prepareStatement(sqlBorrado);
+
+            // Obtener la fecha actual
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+            String fecha_actual = dtf.format(LocalDateTime.now());
+
+            ps1.setString(1, fecha_actual);
+            ps1.setString(2, id);
+
+            ps1.execute();
+            JOptionPane.showMessageDialog(null, "Producto borrado correctamente");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps1 != null) ps1.close();
+                if (conn != null) conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }*/
+    }
+
 
     
 }

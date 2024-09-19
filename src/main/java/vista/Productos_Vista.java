@@ -8,6 +8,8 @@ import gestion_stock.controlador.productosController;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -38,6 +40,7 @@ public class Productos_Vista extends javax.swing.JFrame {
         ModificarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaTable = new javax.swing.JTable();
+        volverButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,14 +85,22 @@ public class Productos_Vista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaTable);
 
+        volverButton.setText("Volver");
+        volverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CrearButton)
                         .addGap(49, 49, 49)
                         .addComponent(BorrarButton)
@@ -97,6 +108,8 @@ public class Productos_Vista extends javax.swing.JFrame {
                         .addComponent(ModificarButton)
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(volverButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(179, 179, 179))))
             .addGroup(layout.createSequentialGroup()
@@ -107,8 +120,13 @@ public class Productos_Vista extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(volverButton)))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -123,12 +141,40 @@ public class Productos_Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CrearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearButtonActionPerformed
-        // TODO add your handling code here:
-        // AAAAAAAAAAAAAAAAAAAA
+
+    agregar_producto_vista agregarProducto = new agregar_producto_vista();
+    
+    // Hacer visible la nueva ventana
+    agregarProducto.setVisible(true);
+    
+    // Si quieres ocultar la ventana actual, puedes hacerlo con:
+    this.dispose();
+        
     }//GEN-LAST:event_CrearButtonActionPerformed
 
     private void ModificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarButtonActionPerformed
-        // TODO add your handling code here:
+        
+    // Tomo el valor de la fila que selecciona el usuario
+    int filaSeleccionada = listaTable.getSelectedRow();
+    
+    // Verifico si el usuario ha seleccionado una fila
+    if (filaSeleccionada != -1) {
+        // Obtengo los datos de la fila seleccionada
+        String idProducto = listaTable.getValueAt(filaSeleccionada, 0).toString();
+        String nombre = listaTable.getValueAt(filaSeleccionada, 1).toString();
+        String descripcion = listaTable.getValueAt(filaSeleccionada, 2).toString();
+        double precio = Double.parseDouble(listaTable.getValueAt(filaSeleccionada, 3).toString());
+
+        // Paso los datos a la vista de modificación
+        Modificar_Vista modificarVista = new Modificar_Vista(idProducto, nombre, descripcion, precio);
+        modificarVista.setVisible(true);
+        
+        // Cierro la ventana actual si es necesario
+        this.dispose();
+    } else {
+        // Si no selecciona ninguna fila
+        JOptionPane.showMessageDialog(this, "Por favor, selecciona un producto para modificar");
+    }
     }//GEN-LAST:event_ModificarButtonActionPerformed
 
     private void BorrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarButtonActionPerformed
@@ -153,6 +199,14 @@ public class Productos_Vista extends javax.swing.JFrame {
         
         //this.dispose();
     }//GEN-LAST:event_BorrarButtonActionPerformed
+
+    private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
+        vista_principal principal = new vista_principal();
+        
+        principal.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_volverButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,5 +250,6 @@ public class Productos_Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaTable;
+    private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 }
