@@ -4,7 +4,7 @@
  */
 package vista;
 
-import gestion_stock.controlador.productosController;
+import gestion_stock.controlador.inventarioController;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,11 +13,11 @@ import java.util.logging.Logger;
  *
  * @author Caro
  */
-public class Productos_Vista extends javax.swing.JFrame {
+public class inventario_vista extends javax.swing.JFrame {
 
-    productosController productosControlles = new productosController();
+    inventarioController productosControlles = new inventarioController();
 
-    public Productos_Vista() {
+    public inventario_vista() {
         initComponents();
         
         productosControlles.consultarLista(listaTable);
@@ -38,6 +38,7 @@ public class Productos_Vista extends javax.swing.JFrame {
         ModificarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaTable = new javax.swing.JTable();
+        VolverButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,13 @@ public class Productos_Vista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaTable);
 
+        VolverButton.setText("Volver");
+        VolverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,15 +98,18 @@ public class Productos_Vista extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(179, 179, 179))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(CrearButton)
                         .addGap(49, 49, 49)
-                        .addComponent(BorrarButton)
-                        .addGap(45, 45, 45)
-                        .addComponent(ModificarButton)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VolverButton)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BorrarButton)
+                                .addGap(45, 45, 45)
+                                .addComponent(ModificarButton)))
+                        .addGap(76, 76, 76))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,7 +127,9 @@ public class Productos_Vista extends javax.swing.JFrame {
                     .addComponent(CrearButton)
                     .addComponent(BorrarButton)
                     .addComponent(ModificarButton))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(VolverButton)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,6 +167,10 @@ public class Productos_Vista extends javax.swing.JFrame {
         //this.dispose();
     }//GEN-LAST:event_BorrarButtonActionPerformed
 
+    private void VolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VolverButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,20 +188,21 @@ public class Productos_Vista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Productos_Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inventario_vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Productos_Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inventario_vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Productos_Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inventario_vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Productos_Vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(inventario_vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Productos_Vista().setVisible(true);
+                new inventario_vista().setVisible(true);
             }
         });
     }
@@ -193,6 +211,7 @@ public class Productos_Vista extends javax.swing.JFrame {
     private javax.swing.JButton BorrarButton;
     private javax.swing.JButton CrearButton;
     private javax.swing.JButton ModificarButton;
+    private javax.swing.JButton VolverButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaTable;

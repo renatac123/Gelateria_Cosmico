@@ -4,8 +4,8 @@
  */
 package vista;
 
-import gestion_stock.controlador.agregar_productoController;
-import modelo.producto;
+import gestion_stock.controlador.agregar_inventarioController;
+import modelo.inventario;
 
 /**
  *
@@ -13,7 +13,7 @@ import modelo.producto;
  */
 public class agregar_producto_vista extends javax.swing.JFrame {
     
-    agregar_productoController productoController = new agregar_productoController();
+    agregar_inventarioController inventarioController = new agregar_inventarioController();
 
     /**
      * Creates new form stock_vista
@@ -43,13 +43,13 @@ public class agregar_producto_vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Agregar Producto");
+        jLabel1.setText("Agregar Inventario");
 
         jLabel2.setText("Producto");
 
         jLabel3.setText("Precio");
 
-        jLabel4.setText("Tipo");
+        jLabel4.setText("Tipo/Descripcion");
 
         tipoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un item", "Paleta", "Kg", "Balde" }));
         tipoCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,7 @@ public class agregar_producto_vista extends javax.swing.JFrame {
                                     .addComponent(descripcionText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(GuardarButton)))))
                 .addGap(76, 76, 76))
         );
@@ -147,14 +147,14 @@ public class agregar_producto_vista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GuardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarButtonActionPerformed
-        producto producto = new producto();
+        inventario inventario = new inventario();
         
-        producto.setTipo((String) tipoCombo.getSelectedItem());
+        inventario.setProductoId((String) tipoCombo.getSelectedItem());
         System.out.println("tipo enla vista " + (String) tipoCombo.getSelectedItem());
-        producto.setDescripcion(descripcionText.getText());
-        producto.setPrecio(Integer.parseInt(precioText.getText()));
+        inventario.setDescripcion(descripcionText.getText());
+        inventario.setPrecio(Integer.parseInt(precioText.getText()));
         
-        productoController.insertarProducto(producto.getTipo(), producto.getDescripcion(), producto.getPrecio());
+        inventarioController.insertarInventario(inventario.getProductoId(), inventario.getDescripcion(), inventario.getPrecio());
         
         tipoCombo.setSelectedIndex(0);
         descripcionText.setText("");

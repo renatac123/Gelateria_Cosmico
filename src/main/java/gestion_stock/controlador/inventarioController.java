@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author renac
  */
-public class productosController {
+public class inventarioController {
  
     
     Connection conn = null;
@@ -30,7 +30,7 @@ public class productosController {
     
     public void consultarLista(JTable tabla){
         conn = conexion.ConnectDB();
-        String sql="SELECT id, tipo, descripcion, precio FROM Productos;";
+        String sql="SELECT id, producto_id, descripcion, precio FROM Inventario;";
         
         try{
             ps = conn.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class productosController {
             rs = ps.executeQuery();
             while(rs.next()){ //Esto hace que se ejecute mientras existan filas
                 datos[0] = rs.getString("id");
-                datos[1] = rs.getString("tipo");
+                datos[1] = rs.getString("producto_id");
                 datos[2] = rs.getString("descripcion");
                 datos[3] = rs.getFloat("precio");
                 

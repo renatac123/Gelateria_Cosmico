@@ -8,23 +8,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
-public class agregar_productoController {
+public class agregar_inventarioController {
 
     Connection conn = null;
     PreparedStatement ps = null;
 
     // Método para insertar un producto en la tabla Productos
-    public void insertarProducto(String tipo, String descripcion, double precio) {
+    public void insertarInventario(String producto_id, String descripcion, double precio) {
         conn = conexion.ConnectDB();  // Conectar a la base de datos
-        String sql = "INSERT INTO Productos(tipo, descripcion, precio) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO Inventario(producto_id, descripcion, precio) VALUES(?, ?, ?)";
         
         try {
             ps = conn.prepareStatement(sql);
 
             // Configurar los valores de la consulta
-            System.out.println("tipo "+tipo);
+            System.out.println("tipo "+ producto_id);
             
-            ps.setString(1, tipo);
+            ps.setString(1, producto_id);
             ps.setString(2, descripcion);
             ps.setDouble(3, precio);
 

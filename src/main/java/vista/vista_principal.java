@@ -32,7 +32,9 @@ public class vista_principal extends javax.swing.JFrame {
         historialbutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(34, 151, 153));
 
+        jLabel1.setFont(new java.awt.Font("Broadway", 0, 36)); // NOI18N
         jLabel1.setText("Gelateria Cosmico");
 
         nuevaventabutton.setText("Nueva Venta");
@@ -42,7 +44,7 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
-        Productosbutton.setText("Productos");
+        Productosbutton.setText("Inventario");
         Productosbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProductosbuttonActionPerformed(evt);
@@ -50,33 +52,41 @@ public class vista_principal extends javax.swing.JFrame {
         });
 
         historialbutton.setText("Historial");
+        historialbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historialbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nuevaventabutton)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(historialbutton)
-                        .addComponent(Productosbutton)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(0, 102, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(historialbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Productosbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nuevaventabutton))
+                        .addGap(213, 213, 213))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(88, 88, 88))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(43, 43, 43)
                 .addComponent(nuevaventabutton)
-                .addGap(31, 31, 31)
+                .addGap(51, 51, 51)
                 .addComponent(Productosbutton)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(historialbutton)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -84,12 +94,18 @@ public class vista_principal extends javax.swing.JFrame {
 
     private void nuevaventabuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaventabuttonActionPerformed
         // TODO add your handling code here:
+        new venta_vista().setVisible(true);
     }//GEN-LAST:event_nuevaventabuttonActionPerformed
 
     private void ProductosbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosbuttonActionPerformed
         // TODO add your handling code here:
-        //AAAAAAAAAAAAAAAAAAAA
+        new inventario_vista().setVisible(true);
     }//GEN-LAST:event_ProductosbuttonActionPerformed
+
+    private void historialbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historialbuttonActionPerformed
+        // TODO add your handling code here:
+        new historial_vista().setVisible(true);
+    }//GEN-LAST:event_historialbuttonActionPerformed
 
     /**
      * @param args the command line arguments

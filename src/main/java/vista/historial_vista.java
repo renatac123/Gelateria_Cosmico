@@ -4,6 +4,8 @@
  */
 package vista;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author renac
@@ -13,8 +15,35 @@ public class historial_vista extends javax.swing.JFrame {
     /**
      * Creates new form historial_vista
      */
+    //ArrayList<venta> ventas;
+    DefaultTableModel historial;
     public historial_vista() {
         initComponents();
+        historial = new DefaultTableModel();
+        
+        historial.addColumn("ID");
+        historial.addColumn("FECHA");
+        historial.addColumn("PRODUCTO");
+        historial.addColumn("TIPO");
+        historial.addColumn("CANTIDAD");
+        historial.addColumn("CLIENTE");
+        historial.addColumn("TOTAL");
+        
+        mostrarHistorial();
+    }
+    
+    public void mostrarHistorial(){
+       // historial.setNumRows(ventas.size() );
+       //for (int i=0; i<ventas.size(); i++){
+           //historial.setValueAt(ventas.get(i).getId(), i, 0); //en la fila i, columna 0 se muestra el id
+           //historial.setValueAt(ventas.get(i).getFecha(), i, 1);
+           //historial.setValueAt(ventas.get(i).getProducto(), i, 2);
+           //historial.setValueAt(ventas.get(i).getTipo(), i, 3);
+           //historial.setValueAt(ventas.get(i).getCantidad(), i, 4);
+           //historial.setValueAt(ventas.get(i).getCliente(), i, 5);
+           //historial.setValueAt(ventas.get(i).getTotal(), i, 6);
+       //}
+       //jtDatos.setModel(historial);
     }
 
     /**

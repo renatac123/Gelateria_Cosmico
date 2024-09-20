@@ -27,16 +27,21 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="CrearButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="BorrarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="ModificarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" pref="106" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="CrearButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="VolverButton" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="BorrarButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="ModificarButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -60,7 +65,9 @@
                   <Component id="BorrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ModificarButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="VolverButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="8" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -143,5 +150,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="VolverButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VolverButtonActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

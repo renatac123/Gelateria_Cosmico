@@ -4,6 +4,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author renac
@@ -176,11 +178,21 @@ public class venta_vista extends javax.swing.JFrame {
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
+        if(!textCantidad.getText().equals("") && !TextPrecioU.getText().equals("") && !TextPrecioT.getText().equals("") && !TextCliente.getText().equals("")){
+            //Historial h = new Historial();
+            //h.setCantidad(textCantidad.getText());
+            //....
+            //historial.add(h);
+            //textCantidad.setText("");
+            //...
+        } else {
+            JOptionPane.showMessageDialog(null, "Faltan datos por completar.");
+        }
     }//GEN-LAST:event_guardarButtonActionPerformed
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         // TODO add your handling code here:
-        //AAAAAAAAAAAAAAAAAAAAAA
+        new venta_vista().setVisible(false);
     }//GEN-LAST:event_volverButtonActionPerformed
 
     /**

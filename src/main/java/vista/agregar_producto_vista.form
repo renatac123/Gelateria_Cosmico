@@ -47,7 +47,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="144" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="GuardarButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -90,7 +90,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar Producto"/>
+        <Property name="text" type="java.lang.String" value="Agregar Inventario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -105,7 +105,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo"/>
+        <Property name="text" type="java.lang.String" value="Tipo/Descripcion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="tipoCombo">
