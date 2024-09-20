@@ -2,6 +2,7 @@ gestion_ventas_gelateria\Gestion_ventas_gelateria.class
 vista\agregar_producto_vista.class
 vista\vista_principal.class
 vista\venta_vista$3.class
+gestion_stock\controlador\nueva_ventaController.class
 vista\inventario_vista.class
 vista\Modificar_Vista$3.class
 vista\historial_vista.class
@@ -37,4 +38,5 @@ vista\vista_principal$4.class
 vista\historial_vista$2.class
 vista\vista_principal$1.class
 vista\Modificar_Vista$1.class
+gestion_stock\controlador\historialController.class
 vista\agregar_producto_vista$5.class
