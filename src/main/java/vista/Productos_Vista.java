@@ -44,8 +44,11 @@ public class Productos_Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
         jLabel1.setText("Listado Productos");
 
+        CrearButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        CrearButton.setForeground(new java.awt.Color(153, 255, 51));
         CrearButton.setText("Crear");
         CrearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +56,8 @@ public class Productos_Vista extends javax.swing.JFrame {
             }
         });
 
+        BorrarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        BorrarButton.setForeground(new java.awt.Color(255, 0, 0));
         BorrarButton.setText("Borrar");
         BorrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +65,8 @@ public class Productos_Vista extends javax.swing.JFrame {
             }
         });
 
+        ModificarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        ModificarButton.setForeground(new java.awt.Color(204, 0, 204));
         ModificarButton.setText("Modificar");
         ModificarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +74,7 @@ public class Productos_Vista extends javax.swing.JFrame {
             }
         });
 
+        listaTable.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         listaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -85,6 +93,8 @@ public class Productos_Vista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaTable);
 
+        volverButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        volverButton.setForeground(new java.awt.Color(255, 51, 204));
         volverButton.setText("Volver");
         volverButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,32 +119,31 @@ public class Productos_Vista extends javax.swing.JFrame {
                         .addGap(76, 76, 76))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(volverButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(121, 121, 121))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(volverButton)))
-                .addGap(32, 32, 32)
+                .addContainerGap()
+                .addComponent(volverButton)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CrearButton)
                     .addComponent(BorrarButton)
                     .addComponent(ModificarButton))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
