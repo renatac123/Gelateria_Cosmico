@@ -142,21 +142,22 @@ public class agregar_producto_vista extends javax.swing.JFrame {
     }//GEN-LAST:event_tipoComboActionPerformed
 
     private void VolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverButtonActionPerformed
-      vista_principal vistaPrincipal = new vista_principal();
+      Productos_Vista prod_vista = new Productos_Vista();
       
-      vistaPrincipal.setVisible(true);
+      prod_vista.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_VolverButtonActionPerformed
 
     private void GuardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarButtonActionPerformed
-        producto producto = new producto();
+        producto producto1 = new producto();
         
-        producto.setTipo((String) tipoCombo.getSelectedItem());
+        producto1.setTipo((String) tipoCombo.getSelectedItem());
         System.out.println("tipo enla vista " + (String) tipoCombo.getSelectedItem());
-        producto.setDescripcion(descripcionText.getText());
-        producto.setPrecio(Integer.parseInt(precioText.getText()));
+        producto1.setDescripcion(descripcionText.getText());
+        producto1.setPrecio(Integer.parseInt(precioText.getText()));
         
-        productoController.insertarProducto(producto.getTipo(), producto.getDescripcion(), producto.getPrecio());
+        //productoController.insertarProducto(producto1.getTipo(), producto1.getDescripcion(), producto1.getPrecio());
+        productoController.insertarProducto(producto1);
         
         tipoCombo.setSelectedIndex(0);
         descripcionText.setText("");

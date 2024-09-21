@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.producto;
 
 
 /**
@@ -28,6 +29,7 @@ public class productosController {
     ResultSet rs = null;
     ResultSet rs1 = null;
     DefaultTableModel modelo;
+
     
     public void consultarLista(JTable tabla){
         conn = conexion.ConnectDB();
@@ -145,35 +147,36 @@ public class productosController {
 
     
     
-    public void modificarProducto(String id) {
+    public void modificarProducto(producto prod) {
         Connection conn = null;
         PreparedStatement ps2 = null;
         
-        /*
+        
         try {
             conn = conexion.ConnectDB();
-            String sqlBorrado = "UPDATE Productos SET hora_borrado=? WHERE id=?";
-            ps1 = conn.prepareStatement(sqlBorrado);
+            String sqlModificado = "UPDATE Productos SET tipo=?, descripcion=?, precio=? WHERE id=?";
+            ps2 = conn.prepareStatement(sqlModificado);
 
-            // Obtener la fecha actual
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
-            String fecha_actual = dtf.format(LocalDateTime.now());
 
-            ps1.setString(1, fecha_actual);
-            ps1.setString(2, id);
+            ps2.setString(1, prod.getTipo());
+            ps2.setString(2, prod.getDescripcion());
+            ps2.setInt(3, prod.getPrecio());
+            ps2.setInt(4, prod.getId());
 
-            ps1.execute();
-            JOptionPane.showMessageDialog(null, "Producto borrado correctamente");
+            ps2.execute();
+            JOptionPane.showMessageDialog(null, "Producto actualizado correctamente");
+            
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (ps1 != null) ps1.close();
+                if (ps2 != null) ps2.close();
                 if (conn != null) conn.close();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-        }*/
+        }
     }
 
 

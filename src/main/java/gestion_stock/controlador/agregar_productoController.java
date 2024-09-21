@@ -7,14 +7,16 @@ package gestion_stock.controlador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import modelo.producto;
 
 public class agregar_productoController {
 
     Connection conn = null;
     PreparedStatement ps = null;
+    producto prod = new producto();
 
     // Método para insertar un producto en la tabla Productos
-    public void insertarProducto(String tipo, String descripcion, double precio) {
+    public void insertarProducto(producto prod) {
         conn = conexion.ConnectDB();  // Conectar a la base de datos
         String sql = "INSERT INTO Productos(tipo, descripcion, precio) VALUES(?, ?, ?)";
         
@@ -22,11 +24,11 @@ public class agregar_productoController {
             ps = conn.prepareStatement(sql);
 
             // Configurar los valores de la consulta
-            System.out.println("tipo "+tipo);
+            System.out.println("tipo "+prod.getTipo());
             
-            ps.setString(1, tipo);
-            ps.setString(2, descripcion);
-            ps.setDouble(3, precio);
+            ps.setString(1, prod.getTipo());
+            ps.setString(2, prod.getDescripcion());
+            ps.setDouble(3, prod.getPrecio());
 
             // Ejecutar la consulta
             ps.execute();

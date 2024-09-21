@@ -5,6 +5,7 @@
 package vista;
 
 import gestion_stock.controlador.productosController;
+import modelo.producto;
 
 /**
  *
@@ -158,10 +159,19 @@ public class Modificar_Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarButtonActionPerformed
+        producto prod = new producto();
+        
+        prod.setId(Integer.parseInt(idText.getText()));
+        prod.setTipo(tipoText.getText());
+        prod.setDescripcion(descripcionText.getText());
+        prod.setPrecio(Integer.parseInt(precioText.getText()));
+        
+        productosControlles.modificarProducto(prod);
     
-    productosControlles.modificarProducto();
-    
-    
+        Productos_Vista productosVista = new Productos_Vista();
+        
+        productosVista.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_GuardarButtonActionPerformed
 
     private void precioTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioTextActionPerformed
