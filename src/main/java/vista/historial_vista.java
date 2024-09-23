@@ -4,17 +4,20 @@
  */
 package vista;
 
+//import gestion_stock.controlador.historialController;
+
 /**
  *
  * @author renac
  */
 public class historial_vista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form historial_vista
-     */
+    //historialController historialController = new historialController();
+    
     public historial_vista() {
         initComponents();
+        
+       // historialController.mostrarHistorial(historialTabla);
     }
 
     /**
@@ -28,7 +31,7 @@ public class historial_vista extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        historialTabla = new javax.swing.JTable();
         volverButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,8 +39,8 @@ public class historial_vista extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
         jLabel1.setText("Historial");
 
-        jTable1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        historialTabla.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        historialTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -48,7 +51,7 @@ public class historial_vista extends javax.swing.JFrame {
                 "Fecha", "Producto", "Tipo", "Cantidad", "Cliente", "Precio Total"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(historialTabla);
 
         volverButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         volverButton.setForeground(new java.awt.Color(255, 0, 153));
@@ -96,7 +99,11 @@ public class historial_vista extends javax.swing.JFrame {
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         // TODO add your handling code here:
-        //AAAAAAAAAAAAAAAAAAAA
+        vista_principal principal = new vista_principal();
+        
+        principal.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_volverButtonActionPerformed
 
     /**
@@ -135,9 +142,9 @@ public class historial_vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable historialTabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 }
