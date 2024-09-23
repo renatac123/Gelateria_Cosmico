@@ -7,7 +7,11 @@ package vista;
 import gestion_stock.controlador.ventasController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Float.parseFloat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import modelo.venta;
 
 /**
  *
@@ -219,7 +223,28 @@ public class venta_vista extends javax.swing.JFrame {
     }//GEN-LAST:event_cantidadTextActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
-        // TODO add your handling code here:
+        venta v = new venta();
+        
+        String productoSeleccionado = productoCombo.getSelectedItem().toString();
+        String tipoSeleccionado = tipoCombo.getSelectedItem().toString();
+        
+        int idProducto = ventasController.buscar_id_producto(tipoSeleccionado, productoSeleccionado);
+        
+        v.setTipo(tipoSeleccionado);
+        v.setProducto_id(idProducto);
+        v.setCantidad(Integer.parseInt(cantidadText.getText()));
+        v.setPrecio_unitario(parseFloat(unitarioText.getText()));
+        v.setPrecio_total(v.getCantidad() * (int)v.getPrecio_unitario());
+        
+        //Averiguo la fecha actual
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"); //Esto es para definir el formato que quiero
+        String fecha_actual  = dtf.format(LocalDateTime.now()); //Aca convierto la fecha en string, ademas de darle el formato a la fecha actual     
+        
+        v.setFecha(fecha_actual);
+        
+        
+        ventasController.guardarCompra(v);
+        
     }//GEN-LAST:event_guardarButtonActionPerformed
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
