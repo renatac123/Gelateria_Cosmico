@@ -4,6 +4,11 @@
  */
 package vista;
 
+import gestion_stock.controlador.ventasController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 /**
  *
  * @author renac
@@ -13,9 +18,21 @@ public class venta_vista extends javax.swing.JFrame {
     /**
      * Creates new form compra_vista
      */
+    ventasController ventasController = new ventasController();
     public venta_vista() {
         initComponents();
+        
+        // Agrega el ActionListener aquí
+        /*
+        productoCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                productoComboActionPerformed(evt);
+            }
+        });*/
+
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,11 +43,11 @@ public class venta_vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Selecttipo = new javax.swing.JComboBox<>();
-        SelectItem = new javax.swing.JComboBox<>();
-        textCantidad = new javax.swing.JTextField();
-        TextPrecioU = new javax.swing.JTextField();
-        TextPrecioT = new javax.swing.JTextField();
+        tipoCombo = new javax.swing.JComboBox<>();
+        productoCombo = new javax.swing.JComboBox<>();
+        cantidadText = new javax.swing.JTextField();
+        unitarioText = new javax.swing.JTextField();
+        totalText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,24 +57,34 @@ public class venta_vista extends javax.swing.JFrame {
         guardarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        TextCliente = new javax.swing.JTextField();
+        clienteText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Selecttipo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Selecttipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccion un item", "Paleta", "Kg", "Balde" }));
-
-        SelectItem.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        SelectItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        SelectItem.addActionListener(new java.awt.event.ActionListener() {
+        tipoCombo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tipoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccion un item", "Paleta", "Kg", "Balde" }));
+        tipoCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SelectItemActionPerformed(evt);
+                tipoComboActionPerformed(evt);
             }
         });
 
-        textCantidad.addActionListener(new java.awt.event.ActionListener() {
+        productoCombo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        productoCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textCantidadActionPerformed(evt);
+                productoComboActionPerformed(evt);
+            }
+        });
+
+        cantidadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadTextActionPerformed(evt);
+            }
+        });
+
+        totalText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalTextActionPerformed(evt);
             }
         });
 
@@ -112,29 +139,29 @@ public class venta_vista extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SelectItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(productoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(Selecttipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tipoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(87, 87, 87))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TextCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(clienteText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TextPrecioT, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextPrecioU, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(totalText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(unitarioText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(88, 88, 88))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,28 +182,28 @@ public class venta_vista extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Selecttipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(SelectItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(TextPrecioU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unitarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(TextPrecioT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(TextCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clienteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volverButton)
@@ -187,9 +214,9 @@ public class venta_vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCantidadActionPerformed
+    private void cantidadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textCantidadActionPerformed
+    }//GEN-LAST:event_cantidadTextActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
@@ -202,9 +229,57 @@ public class venta_vista extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_volverButtonActionPerformed
 
-    private void SelectItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SelectItemActionPerformed
+    private void productoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoComboActionPerformed
+        
+        productoCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+              
+                String productoSeleccionado = productoCombo.getSelectedItem().toString();
+                String tipoSeleccionado = tipoCombo.getSelectedItem().toString();
+                System.out.println("tipo "+tipoSeleccionado +"prod "+ productoSeleccionado);
+                
+                float precioUnitario = ventasController.traerPrecioUnitario(tipoSeleccionado, productoSeleccionado);
+                
+                System.out.println("precio unit " + precioUnitario);
+                unitarioText.setText(String.valueOf(precioUnitario));
+
+            }
+        });
+    }//GEN-LAST:event_productoComboActionPerformed
+
+    private void tipoComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboActionPerformed
+        // Escucha la selección del primer combo
+        tipoCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                ArrayList<Object[]> productosTipo =  ventasController.llenarComboProductos(tipoCombo.getSelectedItem().toString());
+                productoCombo.removeAllItems();
+                
+                // Agrega las descripciones de los productos al combo de productos
+                for (Object[] producto : productosTipo) {
+                    productoCombo.addItem(producto[0].toString()); // Mostrar descripcion
+                }
+                
+
+            }
+        });
+    }//GEN-LAST:event_tipoComboActionPerformed
+
+    private void totalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalTextActionPerformed
+        try {
+            // Obtener los valores de los dos primeros JTextFields
+            double num1 = Double.parseDouble(cantidadText.getText());
+            double num2 = Double.parseDouble(unitarioText.getText());
+
+            // Multiplicar los valores y mostrar en el tercer JTextField
+            double resultado = num1 * num2;
+            totalText.setText(String.valueOf(resultado));
+        } catch (NumberFormatException e) {
+            // Si uno de los JTextFields no tiene un número válido, vaciar el tercer JTextField
+            totalText.setText("");
+        }
+    }//GEN-LAST:event_totalTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,11 +318,8 @@ public class venta_vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> SelectItem;
-    private javax.swing.JComboBox<String> Selecttipo;
-    private javax.swing.JTextField TextCliente;
-    private javax.swing.JTextField TextPrecioT;
-    private javax.swing.JTextField TextPrecioU;
+    private javax.swing.JTextField cantidadText;
+    private javax.swing.JTextField clienteText;
     private javax.swing.JButton guardarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -256,7 +328,10 @@ public class venta_vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField textCantidad;
+    private javax.swing.JComboBox<String> productoCombo;
+    private javax.swing.JComboBox<String> tipoCombo;
+    private javax.swing.JTextField totalText;
+    private javax.swing.JTextField unitarioText;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 }
