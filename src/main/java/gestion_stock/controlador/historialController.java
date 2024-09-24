@@ -34,6 +34,7 @@ public class historialController {
     public void mostrarHistorial(JTable tabla){
         conn = conexion.ConnectDB();
         String sql="SELECT id, producto_id, tipo, cantidad, fecha, cliente, precio_total FROM Historial;";
+        String sqlBuscarProd = "Select descripcion FROM Productos WHERE id=?";
         
         try{
             ps = conn.prepareStatement(sql);
@@ -42,13 +43,24 @@ public class historialController {
 
             rs = ps.executeQuery();
             while(rs.next()){ //Esto hace que se ejecute mientras existan filas
-                datos[0] = rs.getString("id");
-                datos[1] = rs.getString("producto_id");
-                datos[2] = rs.getString("tipo");
+                //datos[0] = rs.getString("id");
+
+                ps1 = conn.prepareStatement(sqlBuscarProd);
+                //Busco la descripcion del producto, ya que solo cuento con el id de la tabla Productos
+                String producto_id = rs.getString("producto_id");
+                
+                ps1.setString(1,producto_id);
+                
+                rs1 = ps1.executeQuery();
+                if(rs1.next()){
+                    datos[0] = rs1.getString("descripcion");
+                }
+                
+                datos[1] = rs.getString("tipo");
+                datos[2] = rs.getString("fecha");
                 datos[3] = rs.getString("cantidad");
-                datos[4] = rs.getString("fecha");
-                datos[5] = rs.getString("cliente");
-                datos[6] = rs.getString("precio_total");
+                datos[4] = rs.getString("cliente");
+                datos[5] = rs.getString("precio_total");
                 
                 modelo.addRow(datos);
             }
@@ -62,4 +74,6 @@ public class historialController {
             JOptionPane.showMessageDialog(null, e);//Esto me muestra una ventana con un mensaje de error en caso de falla
         }
     }
+    
+
 }

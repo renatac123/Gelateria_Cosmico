@@ -5,6 +5,7 @@
 package vista;
 
 import gestion_stock.controlador.productosController;
+import static java.lang.Float.parseFloat;
 import modelo.producto;
 
 /**
@@ -170,7 +171,7 @@ public class Modificar_Vista extends javax.swing.JFrame {
         prod.setId(Integer.parseInt(idText.getText()));
         prod.setTipo(tipoText.getText());
         prod.setDescripcion(descripcionText.getText());
-        prod.setPrecio(Integer.parseInt(precioText.getText()));
+        prod.setPrecio(parseFloat(precioText.getText()));
         
         productosControlles.modificarProducto(prod);
     

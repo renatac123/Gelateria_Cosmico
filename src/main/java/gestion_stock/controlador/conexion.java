@@ -20,7 +20,7 @@ public class conexion {
         try {
             //cargar el driver
             Class.forName("org.sqlite.JDBC");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:/Users/Caro/Downloads/gestion_stock.db");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:/Users/renac/OneDrive/Documentos/gestion_stock.db");
 
             if (conn != null){
                     System.out.println("Conexión a base de datos ... Ok");

@@ -51,12 +51,10 @@ public class venta_vista extends javax.swing.JFrame {
         productoCombo = new javax.swing.JComboBox<>();
         cantidadText = new javax.swing.JTextField();
         unitarioText = new javax.swing.JTextField();
-        totalText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         volverButton = new javax.swing.JButton();
         guardarButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -86,12 +84,6 @@ public class venta_vista extends javax.swing.JFrame {
             }
         });
 
-        totalText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalTextActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel1.setText("Tipo");
 
@@ -103,9 +95,6 @@ public class venta_vista extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel4.setText("Precio Unitario");
-
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabel5.setText("Precio Total");
 
         volverButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         volverButton.setForeground(new java.awt.Color(255, 0, 153));
@@ -145,9 +134,7 @@ public class venta_vista extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(productoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
+                                .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(tipoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(87, 87, 87))
@@ -163,9 +150,7 @@ public class venta_vista extends javax.swing.JFrame {
                                 .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(totalText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(unitarioText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(unitarioText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(88, 88, 88))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,15 +185,11 @@ public class venta_vista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(unitarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(totalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(clienteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volverButton)
                     .addComponent(guardarButton))
@@ -241,9 +222,12 @@ public class venta_vista extends javax.swing.JFrame {
         String fecha_actual  = dtf.format(LocalDateTime.now()); //Aca convierto la fecha en string, ademas de darle el formato a la fecha actual     
         
         v.setFecha(fecha_actual);
+        v.setCliente(clienteText.getText());
         
         
         ventasController.guardarCompra(v);
+        
+        
         
     }//GEN-LAST:event_guardarButtonActionPerformed
 
@@ -291,21 +275,6 @@ public class venta_vista extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_tipoComboActionPerformed
 
-    private void totalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalTextActionPerformed
-        try {
-            // Obtener los valores de los dos primeros JTextFields
-            double num1 = Double.parseDouble(cantidadText.getText());
-            double num2 = Double.parseDouble(unitarioText.getText());
-
-            // Multiplicar los valores y mostrar en el tercer JTextField
-            double resultado = num1 * num2;
-            totalText.setText(String.valueOf(resultado));
-        } catch (NumberFormatException e) {
-            // Si uno de los JTextFields no tiene un número válido, vaciar el tercer JTextField
-            totalText.setText("");
-        }
-    }//GEN-LAST:event_totalTextActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -350,12 +319,10 @@ public class venta_vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JComboBox<String> productoCombo;
     private javax.swing.JComboBox<String> tipoCombo;
-    private javax.swing.JTextField totalText;
     private javax.swing.JTextField unitarioText;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables

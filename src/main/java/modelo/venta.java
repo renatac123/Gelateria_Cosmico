@@ -16,17 +16,19 @@ public class venta {
     float precio_unitario;
     int precio_total;
     String fecha;
+    String cliente;
 
     public venta() {
     }
 
-    public venta(int producto_id, String tipo, int cantidad, float precio_unitario, int precio_total, String fecha) {
+    public venta(int producto_id, String tipo, int cantidad, float precio_unitario, int precio_total, String fecha, String cliente) {
         this.producto_id = producto_id;
         this.tipo = tipo;
         this.cantidad = cantidad;
         this.precio_unitario = precio_unitario;
         this.precio_total = precio_total;
         this.fecha = fecha;
+        this.cliente = cliente;
     }
 
     public int getProducto_id() {
@@ -76,6 +78,15 @@ public class venta {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
     
     
     

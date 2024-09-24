@@ -190,23 +190,30 @@ public class Productos_Vista extends javax.swing.JFrame {
         
         int filaSeleccionada = listaTable.getSelectedRow();
         
-        String id_producto = listaTable.getValueAt(filaSeleccionada, 0).toString();
-        
-        System.out.println("Fila "+ filaSeleccionada +" id "+ id_producto);
-        
-        productosControlles.borrarProducto(id_producto);
-        /*
-        try {
+         // Verifico si el usuario ha seleccionado una fila
+        if (filaSeleccionada != -1) {
+            String id_producto = listaTable.getValueAt(filaSeleccionada, 0).toString();
+
+            System.out.println("Fila "+ filaSeleccionada +" id "+ id_producto);
+
             productosControlles.borrarProducto(id_producto);
-        } catch (ParseException ex) {
-            Logger.getLogger(Productos_Vista.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-        //eliminar_vista eliminarVista = new eliminar_vista ();
-        
-        //eliminarVista.setVisible(true);
-        
-        //this.dispose();
+            /*
+            try {
+                productosControlles.borrarProducto(id_producto);
+            } catch (ParseException ex) {
+                Logger.getLogger(Productos_Vista.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+
+            //eliminar_vista eliminarVista = new eliminar_vista ();
+
+            //eliminarVista.setVisible(true);
+
+            //this.dispose();
+        }else {
+            // Si no selecciona ninguna fila
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un producto para borrar");
+        }
+
     }//GEN-LAST:event_BorrarButtonActionPerformed
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed

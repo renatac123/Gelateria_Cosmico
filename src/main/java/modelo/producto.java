@@ -7,14 +7,14 @@ package modelo;
 public class producto {
     
     private int id;
-    private int precio;
+    private float precio;
     private String tipo;
     private String descripcion;
 
     public producto() {
     }
 
-    public producto(int id, int precio, String tipo, String descripcion) {
+    public producto(int id, float precio, String tipo, String descripcion) {
         this.id = id;
         this.precio = precio;
         this.tipo = tipo;
@@ -29,11 +29,11 @@ public class producto {
         this.id = id;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 

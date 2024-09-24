@@ -31,7 +31,7 @@ public class ventasController {
     
     public ArrayList llenarComboProductos(String tipo){
         conn = conexion.ConnectDB();
-        String sql="SELECT descripcion, precio FROM Productos where tipo= ?;";
+        String sql="SELECT descripcion, precio FROM Productos where tipo= ? AND hora_borrado is NULL;";
         ArrayList<Object[]> listaDatos = new ArrayList<>(); // Lista sin genéricos
         
         
@@ -96,7 +96,7 @@ public class ventasController {
     
     public void guardarCompra(venta venta){
         conn = conexion.ConnectDB();  // Conectar a la base de datos
-        String sql = "INSERT INTO Transacciones(producto_id, tipo, cantidad, fecha, precio_unitario, precio_total) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Historial(producto_id, tipo, cantidad, fecha, precio_unitario, precio_total, cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
         
         try {
             ps2 = conn.prepareStatement(sql);
@@ -108,6 +108,7 @@ public class ventasController {
             ps2.setString(4, venta.getFecha());
             ps2.setInt(5, (int) venta.getPrecio_unitario());
             ps2.setInt(6, venta.getPrecio_total());
+            ps2.setString(7, venta.getCliente());
 
             // Ejecutar la consulta
             ps2.execute();

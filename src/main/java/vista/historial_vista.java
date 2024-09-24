@@ -4,7 +4,7 @@
  */
 package vista;
 
-//import gestion_stock.controlador.historialController;
+import gestion_stock.controlador.historialController;
 
 /**
  *
@@ -12,12 +12,12 @@ package vista;
  */
 public class historial_vista extends javax.swing.JFrame {
 
-    //historialController historialController = new historialController();
+    historialController historialController = new historialController();
     
     public historial_vista() {
         initComponents();
         
-       // historialController.mostrarHistorial(historialTabla);
+        historialController.mostrarHistorial(historialTabla);
     }
 
     /**
@@ -37,18 +37,15 @@ public class historial_vista extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
-        jLabel1.setText("Historial");
+        jLabel1.setText("Historial de Transacciones");
 
         historialTabla.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         historialTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Fecha", "Producto", "Tipo", "Cantidad", "Cliente", "Precio Total"
+                "Producto", "Tipo", "Fecha", "Cantidad", "Cliente", "Precio Total"
             }
         ));
         jScrollPane1.setViewportView(historialTabla);
@@ -72,15 +69,14 @@ public class historial_vista extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(188, 188, 188)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(200, 200, 200)
-                                .addComponent(volverButton)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(200, 200, 200)
+                        .addComponent(volverButton)
+                        .addGap(0, 200, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

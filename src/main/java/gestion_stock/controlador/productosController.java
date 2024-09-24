@@ -160,7 +160,7 @@ public class productosController {
 
             ps2.setString(1, prod.getTipo());
             ps2.setString(2, prod.getDescripcion());
-            ps2.setInt(3, prod.getPrecio());
+            ps2.setFloat(3, prod.getPrecio());
             ps2.setInt(4, prod.getId());
 
             ps2.execute();
