@@ -57,11 +57,11 @@ public class Productos_Vista extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Tipo", "Descripcion", "Precio"
+                "Id", "Tipo", "Descripcion", "Precio", "Stock"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -212,18 +212,7 @@ public class Productos_Vista extends javax.swing.JFrame {
             System.out.println("Fila "+ filaSeleccionada +" id "+ id_producto);
 
             productosControlles.borrarProducto(id_producto);
-            /*
-            try {
-                productosControlles.borrarProducto(id_producto);
-            } catch (ParseException ex) {
-                Logger.getLogger(Productos_Vista.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
 
-            //eliminar_vista eliminarVista = new eliminar_vista ();
-
-            //eliminarVista.setVisible(true);
-
-            //this.dispose();
         }else {
             // Si no selecciona ninguna fila
             JOptionPane.showMessageDialog(this, "Por favor, selecciona un producto para borrar");

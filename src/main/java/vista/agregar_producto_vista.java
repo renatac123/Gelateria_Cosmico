@@ -41,6 +41,8 @@ public class agregar_producto_vista extends javax.swing.JFrame {
         VolverButton = new javax.swing.JButton();
         GuardarButton = new javax.swing.JButton();
         precioText = new javax.swing.JTextField();
+        stockText = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +93,15 @@ public class agregar_producto_vista extends javax.swing.JFrame {
             }
         });
 
+        stockText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockTextActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel5.setText("Stock");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -104,7 +115,14 @@ public class agregar_producto_vista extends javax.swing.JFrame {
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(GuardarButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(19, 19, 19))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(97, 97, 97)
+                                    .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(LabelProducto)
@@ -112,15 +130,11 @@ public class agregar_producto_vista extends javax.swing.JFrame {
                                     .addGap(84, 84, 84)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(tipoCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(descripcionText, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(97, 97, 97)
-                                    .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(descripcionText, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6)
-                                .addGap(19, 19, 19)))))
+                                .addComponent(jLabel5)
+                                .addGap(97, 97, 97)
+                                .addComponent(stockText, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,15 +146,19 @@ public class agregar_producto_vista extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descripcionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelProducto))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(precioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(stockText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(GuardarButton)
                 .addGap(26, 26, 26)
                 .addComponent(VolverButton)
@@ -183,14 +201,19 @@ public class agregar_producto_vista extends javax.swing.JFrame {
         System.out.println("tipo enla vista " + (String) tipoCombo.getSelectedItem());
         producto1.setDescripcion(descripcionText.getText());
         producto1.setPrecio(Integer.parseInt(precioText.getText()));
+        producto1.setStock(Integer.parseInt(stockText.getText()));
         
-        //productoController.insertarProducto(producto1.getTipo(), producto1.getDescripcion(), producto1.getPrecio());
         productoController.insertarProducto(producto1);
         
         tipoCombo.setSelectedIndex(0);
         descripcionText.setText("");
         precioText.setText("");
+        stockText.setText("");
     }//GEN-LAST:event_GuardarButtonActionPerformed
+
+    private void stockTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stockTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,9 +258,11 @@ public class agregar_producto_vista extends javax.swing.JFrame {
     private javax.swing.JTextField descripcionText;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField precioText;
+    private javax.swing.JTextField stockText;
     private javax.swing.JComboBox<String> tipoCombo;
     // End of variables declaration//GEN-END:variables
 }

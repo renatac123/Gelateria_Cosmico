@@ -10,15 +10,17 @@ public class producto {
     private float precio;
     private String tipo;
     private String descripcion;
+    private int stock;
 
     public producto() {
     }
 
-    public producto(int id, float precio, String tipo, String descripcion) {
+    public producto(int id, float precio, String tipo, String descripcion, int stock) {
         this.id = id;
         this.precio = precio;
         this.tipo = tipo;
         this.descripcion = descripcion;
+        this.stock = stock;
     }
 
     public int getId() {
@@ -53,6 +55,12 @@ public class producto {
         this.descripcion = descripcion;
     }
     
-    
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
     
 }

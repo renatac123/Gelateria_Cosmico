@@ -18,7 +18,7 @@ public class agregar_productoController {
     // Método para insertar un producto en la tabla Productos
     public void insertarProducto(producto prod) {
         conn = conexion.ConnectDB();  // Conectar a la base de datos
-        String sql = "INSERT INTO Productos(tipo, descripcion, precio) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO Productos(tipo, descripcion, precio, stock) VALUES(?, ?, ?, ?)";
         
         try {
             ps = conn.prepareStatement(sql);
@@ -29,6 +29,7 @@ public class agregar_productoController {
             ps.setString(1, prod.getTipo());
             ps.setString(2, prod.getDescripcion());
             ps.setDouble(3, prod.getPrecio());
+            ps.setInt(4, prod.getStock());
 
             // Ejecutar la consulta
             ps.execute();

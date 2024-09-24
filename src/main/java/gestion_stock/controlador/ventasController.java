@@ -24,9 +24,13 @@ public class ventasController {
     PreparedStatement ps1 = null;
     PreparedStatement ps2 = null;
     PreparedStatement ps3 = null;
+    PreparedStatement ps4 = null;
+    PreparedStatement ps5 = null;
     ResultSet rs = null;
     ResultSet rs1 = null;
     ResultSet rs2 = null;
+    ResultSet rs4 = null;
+    ResultSet rs5 = null;
     DefaultTableModel modelo;
     
     public ArrayList llenarComboProductos(String tipo){
@@ -95,7 +99,7 @@ public class ventasController {
     }
     
     public void guardarCompra(venta venta){
-        conn = conexion.ConnectDB();  // Conectar a la base de datos
+        Connection conn = conexion.ConnectDB();  // Conectar a la base de datos
         String sql = "INSERT INTO Historial(producto_id, tipo, cantidad, fecha, precio_unitario, precio_total, cliente) VALUES(?, ?, ?, ?, ?, ?, ?)";
         
         try {
@@ -130,12 +134,12 @@ public class ventasController {
         int id = 0;
        
         try{
-            ps3 = conn.prepareStatement(sql);
+            PreparedStatement ps3 = conn.prepareStatement(sql);
            
             ps3.setString(1, tipo);
             ps3.setString(2, producto);
 
-            rs2 = ps3.executeQuery();
+            ResultSet rs2 = ps3.executeQuery();
         
             // Verificamos si hay resultados
             if (rs2.next()) {
@@ -153,5 +157,54 @@ public class ventasController {
         
         return id;
         
+    }
+    
+    public int buscarStock(int id){
+        conn = conexion.ConnectDB();
+        String sqlStock="SELECT stock FROM Productos where id = ?;";
+        int stockDisponible = 0;
+       
+        try{
+            ps4 = conn.prepareStatement(sqlStock);
+            
+            ps4.setInt(1, id);
+            
+            rs4 = ps4.executeQuery();
+        
+            // Verificamos si hay resultados
+            if (rs4.next()) {
+                stockDisponible = rs4.getInt("stock"); 
+            }
+            
+             ps4.close(); 
+            conn.close();
+            
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        return stockDisponible;
+    }
+    
+    public void actualizarStock (int nuevoStock, int id){
+        conn = conexion.ConnectDB();
+        String sqlStockNuevo ="UPDATE Productos SET stock = ? WHERE id = ?;";
+        
+        try{
+            ps5 = conn.prepareStatement(sqlStockNuevo);
+            
+            ps5.setInt(1, nuevoStock);  // Establecemos el nuevo stock
+        ps5.setInt(2, id);  // Establecemos el id del producto
+
+            ps5.execute();
+        
+  
+            
+             ps5.close(); 
+            conn.close();
+            
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 }
