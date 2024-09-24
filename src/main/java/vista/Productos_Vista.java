@@ -34,45 +34,22 @@ public class Productos_Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        CrearButton = new javax.swing.JButton();
-        BorrarButton = new javax.swing.JButton();
-        ModificarButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaTable = new javax.swing.JTable();
         volverButton = new javax.swing.JButton();
+        CrearButton = new javax.swing.JButton();
+        BorrarButton = new javax.swing.JButton();
+        ModificarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
-        jLabel1.setText("Listado Productos");
+        jPanel1.setBackground(new java.awt.Color(161, 214, 178));
 
-        CrearButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        CrearButton.setForeground(new java.awt.Color(153, 255, 51));
-        CrearButton.setText("Crear");
-        CrearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearButtonActionPerformed(evt);
-            }
-        });
-
-        BorrarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        BorrarButton.setForeground(new java.awt.Color(255, 0, 0));
-        BorrarButton.setText("Borrar");
-        BorrarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BorrarButtonActionPerformed(evt);
-            }
-        });
-
-        ModificarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        ModificarButton.setForeground(new java.awt.Color(204, 0, 204));
-        ModificarButton.setText("Modificar");
-        ModificarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModificarButtonActionPerformed(evt);
-            }
-        });
+        jLabel6.setFont(new java.awt.Font("Bernard MT Condensed", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(241, 243, 194));
+        jLabel6.setText("Listado de Productos");
 
         listaTable.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         listaTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,57 +70,95 @@ public class Productos_Vista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaTable);
 
+        volverButton.setBackground(new java.awt.Color(232, 184, 109));
         volverButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        volverButton.setForeground(new java.awt.Color(255, 51, 204));
-        volverButton.setText("Volver");
+        volverButton.setText("VOLVER");
         volverButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverButtonActionPerformed(evt);
             }
         });
 
+        CrearButton.setBackground(new java.awt.Color(206, 223, 159));
+        CrearButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        CrearButton.setText(" CREAR");
+        CrearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearButtonActionPerformed(evt);
+            }
+        });
+
+        BorrarButton.setBackground(new java.awt.Color(206, 223, 159));
+        BorrarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        BorrarButton.setText("BORRAR");
+        BorrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarButtonActionPerformed(evt);
+            }
+        });
+
+        ModificarButton.setBackground(new java.awt.Color(206, 223, 159));
+        ModificarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        ModificarButton.setText("EDITAR");
+        ModificarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(volverButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(CrearButton)
+                        .addGap(73, 73, 73)
+                        .addComponent(BorrarButton)
+                        .addGap(75, 75, 75)
+                        .addComponent(ModificarButton)))
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(153, 153, 153))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel6)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CrearButton)
+                    .addComponent(BorrarButton)
+                    .addComponent(ModificarButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(volverButton)
+                .addGap(17, 17, 17))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CrearButton)
-                        .addGap(49, 49, 49)
-                        .addComponent(BorrarButton)
-                        .addGap(45, 45, 45)
-                        .addComponent(ModificarButton)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(volverButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(volverButton)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CrearButton)
-                    .addComponent(BorrarButton)
-                    .addComponent(ModificarButton))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,7 +278,8 @@ public class Productos_Vista extends javax.swing.JFrame {
     private javax.swing.JButton BorrarButton;
     private javax.swing.JButton CrearButton;
     private javax.swing.JButton ModificarButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaTable;
     private javax.swing.JButton volverButton;

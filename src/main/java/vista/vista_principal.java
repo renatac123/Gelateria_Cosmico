@@ -26,17 +26,23 @@ public class vista_principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nuevaventabutton = new javax.swing.JButton();
         Productosbutton = new javax.swing.JButton();
         historialbutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setForeground(new java.awt.Color(161, 214, 178));
 
-        jLabel1.setFont(new java.awt.Font("Papyrus", 1, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(161, 214, 178));
+
+        jLabel1.setFont(new java.awt.Font("Bernard MT Condensed", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(241, 243, 194));
         jLabel1.setText("Gelateria Cosmico");
 
-        nuevaventabutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        nuevaventabutton.setBackground(new java.awt.Color(206, 223, 159));
+        nuevaventabutton.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
         nuevaventabutton.setText("Nueva Venta");
         nuevaventabutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,7 +50,8 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
-        Productosbutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Productosbutton.setBackground(new java.awt.Color(206, 223, 159));
+        Productosbutton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Productosbutton.setText("Productos");
         Productosbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +59,8 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
-        historialbutton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        historialbutton.setBackground(new java.awt.Color(206, 223, 159));
+        historialbutton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         historialbutton.setText("Historial");
         historialbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,34 +68,47 @@ public class vista_principal extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nuevaventabutton, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Productosbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historialbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(nuevaventabutton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(Productosbutton)
+                .addGap(32, 32, 32)
+                .addComponent(historialbutton)
+                .addGap(28, 28, 28))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nuevaventabutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Productosbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(historialbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(190, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addComponent(nuevaventabutton)
-                .addGap(47, 47, 47)
-                .addComponent(Productosbutton)
-                .addGap(49, 49, 49)
-                .addComponent(historialbutton)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,6 +174,7 @@ public class vista_principal extends javax.swing.JFrame {
     private javax.swing.JButton Productosbutton;
     private javax.swing.JButton historialbutton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nuevaventabutton;
     // End of variables declaration//GEN-END:variables
 }
